@@ -1,5 +1,13 @@
+import { DeliveryForm } from "./components/DeliveryForm";
+import { HomeContainer } from "./style";
+
 export function Home() {
     return(
-        <h1>Home</h1>
+        <HomeContainer>
+            <form action="">
+                <DeliveryForm />
+            </form>
+
+        </HomeContainer>
     )
 }

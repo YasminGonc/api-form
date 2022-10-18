@@ -8,6 +8,11 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        
         height: 100vh;
         background-image: ${props => props.theme.linear};
         background-repeat: no-repeat;
