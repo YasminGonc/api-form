@@ -4,8 +4,7 @@ export const DeliveryFormContainer = styled.section`
     background-color: ${props => props.theme["blue-200"]};
     border-radius: 16px;
     padding: 2.625rem 2rem;
-    width: 640px;
-    max-width: 640px;
+    
 `
 export const TitleContainer = styled.div`
     h2 {
@@ -17,7 +16,8 @@ export const TitleContainer = styled.div`
 export const InputsContainer = styled.div`
     margin-top: 2rem;
     display: grid;
-    grid-template-columns: 1fr 1fr auto;
+    gap: 1rem;
+    grid-template-columns: 1fr 1fr 2.625rem;
     grid-template-areas: 
         'cep . .'
         'rua rua rua'
@@ -25,7 +25,7 @@ export const InputsContainer = styled.div`
         'bairro cidade uf'
     ;
 `
-export const InputWrapper = styled.fieldset`
+const InputWrapper = styled.fieldset`
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -50,5 +50,35 @@ export const InputWrapper = styled.fieldset`
         &:focus {
             outline: 0;
         }
+    }
+
+    span {
+        color: ${props => props.theme.warning};
+        font-size: 0.75rem;
+    }
+`
+export const InputWrapperCep = styled(InputWrapper)`
+    grid-area: cep;
+`
+export const InputWrapperRua = styled(InputWrapper)`
+    grid-area: rua;
+`
+export const InputWrapperNumero = styled(InputWrapper)`
+    grid-area: numero;
+`
+export const InputWrapperComplemento = styled(InputWrapper)`
+    grid-area: complemento;
+`
+export const InputWrapperBairro = styled(InputWrapper)`
+    grid-area: bairro;
+`
+export const InputWrapperCidade = styled(InputWrapper)`
+    grid-area: cidade;
+`
+export const InputWrapperUf = styled(InputWrapper)`
+    grid-area: uf;
+
+    input {
+        width: 2.625rem;
     }
 `
