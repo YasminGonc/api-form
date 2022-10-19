@@ -11,5 +11,27 @@ O objetivo do projeto é mostrar como se consome uma API com React e como fazemo
 - React Router Dom para criar as rotas da aplicação;
 - React Hook Form e Zod para trabalhar e validar os inputs;
 - API Via CEP para trazer as informações de rua, cidade, bairro e uf;
-- Radix UI.
+- Radix UI, utilizando o componente de ratio group para seleção da forma de pagamento.
+
+## Deploy da aplicação
+
+"Em breve"
+<br>
+Para abrir o projeto em localhost basta digitar o comando `npm run dev`.
+
+## Vídeo da aplicação
+
+"Em breve"
+
+## Design da aplicação
+
+<img src="GHassets/home.png" width="600">
+<img src="GHassets/validation.png" width="600">
+<img src="GHassets/home-fill.png" width="600">
+<img src="GHassets/success.png" width="600">
+
+## Dados complementares
+
+- Autor: [Yasmin](https://www.linkedin.com/in/yasmin-goncalves/)
+
  
