@@ -17,7 +17,7 @@ export const InputsContainer = styled.div`
     margin-top: 2rem;
     display: grid;
     gap: 1rem;
-    grid-template-columns: 1fr 1fr 2.625rem;
+    grid-template-columns: 1fr 1fr 3rem;
     grid-template-areas: 
         'cep . .'
         'rua rua rua'
@@ -50,6 +50,10 @@ const InputWrapper = styled.fieldset`
         &:focus {
             outline: 0;
         }
+
+        &:disabled {
+            opacity: 0.6;
+        }
     }
 
     span {
@@ -79,6 +83,6 @@ export const InputWrapperUf = styled(InputWrapper)`
     grid-area: uf;
 
     input {
-        width: 2.625rem;
+        width: 3rem;
     }
 `

@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Controller, useFormContext } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
 import { DataFormContext } from "../../../../context/DataFormContext";
 import { DeliveryFormContainer, InputsContainer, InputWrapperBairro, InputWrapperCep, InputWrapperCidade, InputWrapperComplemento, InputWrapperNumero, InputWrapperRua, InputWrapperUf, TitleContainer } from "./styles";
 
@@ -12,11 +12,11 @@ interface ErrorsType {
 }
 
 export function DeliveryForm() {
-    const { register, getValues, formState, control, setValue } = useFormContext();
+    const { register, getValues, formState, setValue } = useFormContext();
 
     const { errors } = formState as unknown as ErrorsType;
 
-    const { dataFromApi, takeCepFromInput } = useContext(DataFormContext);
+    const { dataFromApi, dataFromApiFailed, takeCepFromInput } = useContext(DataFormContext);
 
     function handleCepInput() {
         const cepInputValue = getValues('cep');
@@ -29,6 +29,9 @@ export function DeliveryForm() {
 
     if (dataFromApi) {
         setValue('rua', dataFromApi.logradouro);
+        setValue('bairro', dataFromApi.bairro);
+        setValue('cidade', dataFromApi.localidade);
+        setValue('uf', dataFromApi.uf);
     }
 
     return (
@@ -44,33 +47,28 @@ export function DeliveryForm() {
                     <input
                         type="text"
                         id="cep"
-                        placeholder="CEP"
+                        placeholder="CEP (Ex.: 00000-000)"
                         {...register('cep', {
                             onBlur: () => handleCepInput()
                         })}
                     />
                     <span>{errors.cep?.message}</span>
+                    <span>{dataFromApiFailed}</span>
                 </InputWrapperCep>
-
-                {/* <Controller
-                    control={control}
-                    name="rua"
-                    render={({ field }) => {
-                        return (
-                            <InputWrapperRua>
-                                <label htmlFor="rua">Rua</label>
-                                <input type="text" id="rua" placeholder="Rua" value={dataFromApi?.logradouro} />
-                            </InputWrapperRua>
-                        )
-                    }}
-                /> */}
                 <InputWrapperRua>
                     <label htmlFor="rua">Rua</label>
-                    <input type="text" id="rua" placeholder="Rua" {...register('rua')} />
+                    <input 
+                        type="text" 
+                        id="rua" 
+                        placeholder="Rua" 
+                        disabled={!!dataFromApi?.logradouro}
+                        {...register('rua')} 
+                    />
                 </InputWrapperRua>
                 <InputWrapperNumero>
                     <label htmlFor="numero">Número</label>
                     <input type="text" id="numero" placeholder="Número" {...register('numero')} />
+                    <span>{errors.numero?.message}</span>
                 </InputWrapperNumero>
                 <InputWrapperComplemento>
                     <label htmlFor="complemento">Complemento</label>
@@ -78,15 +76,32 @@ export function DeliveryForm() {
                 </InputWrapperComplemento>
                 <InputWrapperBairro>
                     <label htmlFor="bairro">Bairro</label>
-                    <input type="text" id="bairro" placeholder="Bairro" {...register('bairro')} />
+                    <input 
+                        type="text" 
+                        id="bairro" 
+                        placeholder="Bairro" 
+                        disabled={!!dataFromApi?.bairro}
+                        {...register('bairro')} 
+                    />
                 </InputWrapperBairro>
                 <InputWrapperCidade>
                     <label htmlFor="cidade">Cidade</label>
-                    <input type="text" id="cidade" placeholder="Cidade" {...register('cidade')} />
+                    <input 
+                        type="text" 
+                        id="cidade" 
+                        placeholder="Cidade" 
+                        disabled={!!dataFromApi?.localidade}
+                        {...register('cidade')} />
                 </InputWrapperCidade>
                 <InputWrapperUf>
                     <label htmlFor="uf">UF</label>
-                    <input type="text" id="uf" placeholder="UF" {...register('uf')} />
+                    <input 
+                        type="text" 
+                        id="uf" 
+                        placeholder="UF" 
+                        disabled={!!dataFromApi?.uf}
+                        {...register('uf')} 
+                    />
                 </InputWrapperUf>
             </InputsContainer>
         </DeliveryFormContainer>
