@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
     * {
@@ -14,10 +14,10 @@ export const GlobalStyle = createGlobalStyle`
         justify-content: center;
         
         height: 100vh;
-        background-image: ${props => props.theme.linear};
+        background-image: ${(props) => props.theme.linear};
         background-repeat: no-repeat;
 
-        color: ${props => props.theme.text};
+        color: ${(props) => props.theme.text};
     }
 
     body, input, textarea, button {

@@ -1,92 +1,91 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const DeliveryFormContainer = styled.section`
-    background-color: ${props => props.theme["blue-200"]};
-    border-radius: 16px;
-    padding: 2rem;
+  background-color: ${(props) => props.theme['blue-200']};
+  border-radius: 16px;
+  padding: 2rem;
 `
 export const TitleContainer = styled.div`
-    h2 {
-        color: ${props => props.theme.pink};
-        font-size: 1.5rem;
-        font-weight: 400;
-        line-height: 1.2;
-    }
+  h2 {
+    color: ${(props) => props.theme.pink};
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.2;
+  }
 `
 export const InputsContainer = styled.div`
-    margin-top: 2rem;
-    display: grid;
-    gap: 1rem;
-    grid-template-columns: 1fr 1fr 3rem;
-    grid-template-areas: 
-        'cep . .'
-        'rua rua rua'
-        'numero complemento complemento'
-        'bairro cidade uf'
-    ;
+  margin-top: 2rem;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr 3rem;
+  grid-template-areas:
+    'cep . .'
+    'rua rua rua'
+    'numero complemento complemento'
+    'bairro cidade uf';
 `
 const InputWrapper = styled.fieldset`
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 
+  border: 0;
+  color: ${(props) => props.theme.placeholder};
+  font-size: 0.875rem;
+
+  input {
+    background-color: ${(props) => props.theme['blue-100']};
     border: 0;
-    color: ${props => props.theme.placeholder};
-    font-size: 0.875rem;
+    border-radius: 6px;
+    color: ${(props) => props.theme.text};
 
-    input {
-        background-color: ${props => props.theme["blue-100"]};
-        border: 0;
-        border-radius: 6px;
-        color: ${props => props.theme.text};
+    padding: 0.75rem;
 
-        padding: 0.75rem;
-
-        &::placeholder {
-            color: ${props => props.theme.placeholder};
-            font-size: 0.875rem;
-        }
-
-        &:focus {
-            outline: 0;
-        }
-
-        &:disabled {
-            opacity: 0.6;
-        }
+    &::placeholder {
+      color: ${(props) => props.theme.placeholder};
+      font-size: 0.875rem;
     }
+
+    &:focus {
+      outline: 0;
+    }
+
+    &:disabled {
+      opacity: 0.6;
+    }
+  }
 `
 export const WarningMessage = styled.span`
-    color: ${props => props.theme.warning};
-    font-size: 0.75rem;
-    font-style: italic;
+  color: ${(props) => props.theme.warning};
+  font-size: 0.75rem;
+  font-style: italic;
 `
 export const OptionalText = styled.span`
-    color: ${props => props.theme.placeholder};
-    font-size: 0.65rem;
+  color: ${(props) => props.theme.placeholder};
+  font-size: 0.65rem;
 `
 export const InputWrapperCep = styled(InputWrapper)`
-    grid-area: cep;
+  grid-area: cep;
 `
 export const InputWrapperRua = styled(InputWrapper)`
-    grid-area: rua;
+  grid-area: rua;
 `
 export const InputWrapperNumero = styled(InputWrapper)`
-    grid-area: numero;
+  grid-area: numero;
 `
 export const InputWrapperComplemento = styled(InputWrapper)`
-    grid-area: complemento;
+  grid-area: complemento;
 `
 export const InputWrapperBairro = styled(InputWrapper)`
-    grid-area: bairro;
+  grid-area: bairro;
 `
 export const InputWrapperCidade = styled(InputWrapper)`
-    grid-area: cidade;
+  grid-area: cidade;
 `
 export const InputWrapperUf = styled(InputWrapper)`
-    grid-area: uf;
+  grid-area: uf;
 
-    input {
-        width: 3rem;
-    }
+  input {
+    width: 3rem;
+  }
 `
