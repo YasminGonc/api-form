@@ -3,14 +3,14 @@ import styled from "styled-components";
 export const DeliveryFormContainer = styled.section`
     background-color: ${props => props.theme["blue-200"]};
     border-radius: 16px;
-    padding: 2.625rem 2rem;
-    
+    padding: 2rem;
 `
 export const TitleContainer = styled.div`
     h2 {
         color: ${props => props.theme.pink};
         font-size: 1.5rem;
         font-weight: 400;
+        line-height: 1.2;
     }
 `
 export const InputsContainer = styled.div`
@@ -55,11 +55,15 @@ const InputWrapper = styled.fieldset`
             opacity: 0.6;
         }
     }
-
-    span {
-        color: ${props => props.theme.warning};
-        font-size: 0.75rem;
-    }
+`
+export const WarningMessage = styled.span`
+    color: ${props => props.theme.warning};
+    font-size: 0.75rem;
+    font-style: italic;
+`
+export const OptionalText = styled.span`
+    color: ${props => props.theme.placeholder};
+    font-size: 0.65rem;
 `
 export const InputWrapperCep = styled(InputWrapper)`
     grid-area: cep;

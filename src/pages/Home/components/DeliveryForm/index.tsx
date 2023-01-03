@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { useFormContext } from "react-hook-form";
 import { DataFormContext } from "../../../../context/DataFormContext";
-import { DeliveryFormContainer, InputsContainer, InputWrapperBairro, InputWrapperCep, InputWrapperCidade, InputWrapperComplemento, InputWrapperNumero, InputWrapperRua, InputWrapperUf, TitleContainer } from "./styles";
+import { DeliveryFormContainer, InputsContainer, InputWrapperBairro, InputWrapperCep, InputWrapperCidade, InputWrapperComplemento, InputWrapperNumero, InputWrapperRua, InputWrapperUf, OptionalText, TitleContainer, WarningMessage } from "./styles";
 
 interface ErrorsType {
     errors: {
@@ -52,8 +52,8 @@ export function DeliveryForm() {
                             onBlur: () => handleCepInput()
                         })}
                     />
-                    <span>{errors.cep?.message}</span>
-                    <span>{dataFromApiFailed}</span>
+                    <WarningMessage>{errors.cep?.message}</WarningMessage>
+                    <WarningMessage>{dataFromApiFailed}</WarningMessage>
                 </InputWrapperCep>
                 <InputWrapperRua>
                     <label htmlFor="rua">Rua</label>
@@ -68,10 +68,13 @@ export function DeliveryForm() {
                 <InputWrapperNumero>
                     <label htmlFor="numero">Número</label>
                     <input type="text" id="numero" placeholder="Número" {...register('numero')} />
-                    <span>{errors.numero?.message}</span>
+                    <WarningMessage>{errors.numero?.message}</WarningMessage>
                 </InputWrapperNumero>
                 <InputWrapperComplemento>
-                    <label htmlFor="complemento">Complemento</label>
+                    <label htmlFor="complemento">
+                        Complemento
+                        <OptionalText> (opcional)</OptionalText>
+                    </label>
                     <input type="text" id="complemento" placeholder="Complemento" {...register('complemento')} />
                 </InputWrapperComplemento>
                 <InputWrapperBairro>

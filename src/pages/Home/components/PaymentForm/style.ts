@@ -4,8 +4,9 @@ import * as RadioGroup from '@radix-ui/react-radio-group';
 export const PaymentFormContainer = styled.section`
     background-color: ${props => props.theme["blue-200"]};
     border-radius: 16px;
-    padding: 2.625rem 2rem;
+    padding: 2rem;
     margin: 0.5rem 0;
+    line-height: 1.2;
 `
 export const TitleContainer = styled.div`
     margin-bottom: 2rem;
