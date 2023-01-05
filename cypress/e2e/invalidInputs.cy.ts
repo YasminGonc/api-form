@@ -1,5 +1,7 @@
 /* global cy */
 
+import { address } from './validInputs.cy'
+
 describe('empty spec', () => {
   beforeEach(() => {
     cy.visit('http://127.0.0.1:5173/')
@@ -29,11 +31,14 @@ describe('empty spec', () => {
     )
   })
 
-  it('verify valid inputs and credit payment', () => {
-    cy.payment('credit')
-  })
-
-  it('verify valid inputs and debit payment', () => {
-    cy.payment('debit')
+  it('verify valid CEP and number input empty', () => {
+    cy.deliveryData(
+      'credit',
+      address[0].cep,
+      address[0].rua,
+      address[0].bairro,
+      address[0].cidade,
+      address[0].uf,
+    )
   })
 })

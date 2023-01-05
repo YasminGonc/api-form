@@ -3,7 +3,15 @@ import './commands'
 declare global {
   namespace Cypress {
     interface Chainable {
-      payment(payment: string): Chainable<void>
+      deliveryData(
+        payment: string,
+        cep: string,
+        rua: string,
+        bairro: string,
+        cidade: string,
+        uf: string,
+        numero?: string,
+      ): Chainable<void>
     }
   }
 }
