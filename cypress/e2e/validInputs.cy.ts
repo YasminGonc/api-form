@@ -3,7 +3,7 @@
 interface AddressProps {
   cep: string
   rua: string
-  numero?: string
+  numero: string
   bairro: string
   cidade: string
   uf: string
@@ -54,5 +54,3 @@ describe('valid imputs', () => {
     })
   })
 })
-
-// verificar cep ok e sem número

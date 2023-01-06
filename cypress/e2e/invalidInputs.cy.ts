@@ -36,10 +36,14 @@ describe('invalid inputs', () => {
       'credit',
       address[0].cep,
       address[0].rua,
-      address[0].numero,
+      ' ',
       address[0].bairro,
       address[0].cidade,
       address[0].uf,
+    )
+    cy.get('.sc-pyfCe > .sc-jSUZER').should(
+      'contain.text',
+      'Informe um número válido',
     )
   })
 })
