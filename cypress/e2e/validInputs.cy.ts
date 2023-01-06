@@ -11,7 +11,7 @@ interface AddressProps {
 
 export const address: AddressProps[] = require('../fixtures/address.json')
 
-describe('empty spec', () => {
+describe('valid imputs', () => {
   beforeEach(() => {
     cy.visit('http://127.0.0.1:5173/')
   })

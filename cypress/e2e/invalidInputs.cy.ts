@@ -2,7 +2,7 @@
 
 import { address } from './validInputs.cy'
 
-describe('empty spec', () => {
+describe('invalid inputs', () => {
   beforeEach(() => {
     cy.visit('http://127.0.0.1:5173/')
   })
@@ -36,6 +36,7 @@ describe('empty spec', () => {
       'credit',
       address[0].cep,
       address[0].rua,
+      address[0].numero,
       address[0].bairro,
       address[0].cidade,
       address[0].uf,

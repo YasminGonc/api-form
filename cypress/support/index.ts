@@ -7,10 +7,10 @@ declare global {
         payment: string,
         cep: string,
         rua: string,
+        numero: string,
         bairro: string,
         cidade: string,
         uf: string,
-        numero?: string,
       ): Chainable<void>
     }
   }
